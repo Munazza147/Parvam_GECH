@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .first{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: aqua;
+            border: 2px solid red;
+            width: 10vw;
+            height: 20vh;
+            transition: all 3s;
+            transition-timing-function: ease-in;
+        }
+        .first:hover{
+            background-color: blue;
+            transform: translate(300px, 400px) scale(2);
+        }
+    </style>
+</head>
+<body>
+    <div class="first">
+        <span>1</span>
+    </div>
+</body>
+</html>

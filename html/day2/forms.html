@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+</head>
+<body>
+    <!-- Contact Form -->
+    <h1>Contact Form</h1>
+    <form action="#" method="post" novalidate>
+        <input type="hidden" name="csrf" value="csrftoken">
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name" required value="Pavan" placeholder="Name" readonly><br><br>
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email" required placeholder="Email" value="someone@gmail.com" readonly><br><br>
+        <label for="message">Message: </label>
+        <textarea name="message" id="message" required cols="30" rows="2" placeholder="Message">Some Message</textarea> <br><br>
+        <!-- <button type="submit">Submit</button> -->
+         <input type="submit" value="Submit" disabled>
+    </form>
+
+    <h1>Form</h1>
+    <form action="#">
+    <fieldset>
+        <legend>Personal Info</legend>
+        <input type="text" name="name" id="name" placeholder="Name"><br>
+        <input type="email" name="email" id="email" placeholder="Email"><br>
+        <input type="password" name="password" id="password" placeholder="Password"><br>
+        <input type="tel" name="tel" id="tel" placeholder="tel"><br>
+        <label for="gender">Gender:</label><br>
+        <input type="radio" name="gender" id="male"> <label for="male">Male</label><br>
+        <input type="radio" name="gender" id="female"> <label for="female">Female</label><br>
+        <br>
+    </fieldset>
+        <input type="file" name="img_file" id="img_file" accept=".jpg">
+        <input type="file" name="img_file" id="img_file1" multiple><br>
+        <label for="Skills">Skills</label>
+        <input type="checkbox" name="skills" id="html"><label for="html">Html</label>
+        <input type="checkbox" name="skills" id="css"><label for="css">Css</label>
+        <input type="checkbox" name="skills" id="js"><label for="js">JS</label>
+        <select name="con" id="con">
+            <option value="">Select the country</option>
+            <option value="india">India</option>
+        </select>
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
