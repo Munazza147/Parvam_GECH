@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Looping</title>
+</head>
+
+<body>
+    <h1>Looping statement</h1>
+    <p>1. for loop - for(ini; con; inc/dec){}</p>
+    <p>2. while loop -
+    <pre>
+        // ini ex: i=0;
+        while(condition){
+            //code
+            //inc / dec
+        }
+    </pre>
+    </p>
+    <p>3. do while -
+    <pre>
+                //ini
+                do{
+                    //code
+                    //ini /dec
+                }while(condition);
+        </pre>
+    </p>
+    <p>4. for in</p>
+    <p>5. for of -
+    <pre> for( item of iterable){
+        //code
+    }</pre>
+    </p>
+    <script>
+        let array1 = ["item1", "item2", "item3", "item4"];
+        let len = array1.length;
+        console.log(len);
+        for (let i = 0; i < len; i++) {
+            console.log(array1[i]);
+        }
+
+        console.log("While loop");
+        let j = 0;
+        while (j < array1.length) {
+            console.log(array1[j]);
+            j++;  // j=j+1  
+        }
+        console.log("Do While loop");
+        let k = 0;
+        do {
+            console.log(array1[k]);
+            k++;  // k=k+1  
+        } while (k < array1.length)
+
+
+
+        do {
+            const inputVar = +prompt("Enter the number");
+            if (inputVar === 20) {
+                break;
+            }
+        } while (true);
+
+
+
+        // for of
+        console.log("For of loop");
+        let new_array = [12, 13, 14, 15, 16];
+        for (let item of new_array) {
+            console.log(item);
+        }
+
+        // for in
+        console.log("For in loop");
+        let new_array1 = [12, 13, 14, 15, 16];
+        for (let item in new_array1) {
+            console.log(new_array1[item]);
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operators</title>
+    <style>
+        body {
+            padding: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Operators in JS</h1>
+    <dl>
+        <dt>1. Arth Operators</dt>
+        <dd>+ , - , * , / , % , **</dd>
+    </dl>
+    <dl>
+        <dt>2. Assign Operators</dt>
+        <dd>=, +=, -=, /= , %= , *= ,**= </dd>
+    </dl>
+    <dl>
+        <dt>3. Comp Operators</dt>
+        <dd>== - compare the values, === - will compare the datatype, != - compare the values, !== - will compare the
+            datatype, <,>, <=,>=</dd>
+    </dl>
+    <dl>
+        <dt>4. Bitw Operators</dt>
+        <dd>&, |, ~ , ^</dd>
+    </dl>
+    <dl>
+        <dt>5. Logi Operators</dt>
+        <dd>&&, ||, !</dd>
+    </dl>
+    <dl>
+        <dt>6. Ternary Operator</dt>
+        <dd>? :</dd>
+    </dl>
+
+    <script>
+        let var1 = 121; //number
+        let var2 = "121"; //string
+        console.log("== : ", var1 == var2);
+        console.log("=== : ", var1 === var2);
+        console.log("!= : ", var1 != var2);
+        console.log("!== : ", var1 !== var2);
+
+        console.log("-------------------------------------");
+        console.log("Bitwise");
+        let var3 = 3; // 011
+        let var4 = 2; // 010
+
+        console.log("&: ", var3 & var4);
+        console.log("|: ", var3 | var4);
+        console.log("~: ", ~var4);
+        console.log("^: ", var3 ^ var4);
+        let var5 = 3;
+        let var6 = 2;
+        let var7 = 3;
+        let var8 = 6;
+        console.log("&&: ", var5 && var6);
+        console.log((var5 > var6) && (var7 < var8))
+
+        console.log("? : - ", (6 > 13) ? "Yes it is" : "Not");
+
+    </script>
+</body>
+
+</html>
