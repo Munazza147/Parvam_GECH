@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions</title>
+    <style>
+        table,
+        td,
+        th {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Arrow Functions</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>FirstName</th>
+                <th>Age</th>
+                <th>Address</th>
+            </tr>
+        </thead>
+        <tbody id="table_body">
+
+        </tbody>
+    </table>
+    <script>
+        const iseven = num => num % 2 == 0;
+
+        const res = iseven(4);
+        console.log(res);
+    </script>
+    <script>
+        const users = [
+            { firstName: "Pavan", age: 23, address: "bengaluru" },
+            { firstName: "Pavan1", age: 23, address: "bengaluru" },
+            { firstName: "Pavan2", age: 23, address: "bengaluru" },
+            { firstName: "Pavan3", age: 23, address: "bengaluru" },
+            { firstName: "Pavan4", age: 23, address: "bengaluru" },
+            { firstName: "Pavan5", age: 23, address: "bengaluru" },
+            { firstName: "Pavan6", age: 24, address: "bengaluru" },
+        ]
+        let contet = "";
+        for (let item of users) {
+            contet += `<tr>
+                <td>${item.firstName}</td>
+                <td>${item.age}</td>
+                <td>${item.address}</td>
+            </tr>`
+        }
+        console.log(contet);
+        document.getElementById("table_body").innerHTML = contet;
+    </script>
+</body>
+
+</html>

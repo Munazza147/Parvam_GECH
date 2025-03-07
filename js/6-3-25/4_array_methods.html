@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Methods</title>
+
+</head>
+
+<body>
+    <h1>Array Methods</h1>
+    <p>1. foreach</p>
+    <p>2. map</p>
+    <p>3. filter</p>
+    <p>4. reduce</p>
+    <p>5. sort</p>
+    <p>6. splice(strat,delete,insert)</p>
+    <p>7. each</p>
+    <p>8. some</p>
+    <script>
+        const array1 = [1, 2, 3, 4, 5, 6];
+        //1. foreach
+        array1.forEach((curEle, index, array) => {
+            console.log(curEle * curEle, "index is: ", index, " array is: ", array);
+        })
+
+        const users = [
+            { firstName: "Pavan", age: 23, address: "bengaluru" },
+            { firstName: "Pavan1", age: 23, address: "bengaluru" },
+            { firstName: "Pavan2", age: 23, address: "bengaluru" },
+        ]
+        users.forEach((curEle) => {
+            console.log(curEle.firstName);
+        })
+
+        //2. map
+        const array2 = [2, 4, 6, 8, 10, 12, 14];
+        const array3 = array2.map((curEle, index, array) => {
+            return curEle * curEle;
+        })
+        console.log("array2: ", array2);
+        console.log("array3: ", array3);
+
+        const users1 = [
+            { firstName: "Pavan", age: 23, address: "bengaluru" },
+            { firstName: "Pavan1", age: 23, address: "bengaluru" },
+            { firstName: "Pavan2", age: 23, address: "bengaluru" },
+        ]
+        const users2 = users1.map((ele) => {
+            return ele.firstName;
+        })
+
+        console.log("users2: ", users2);
+
+        //3. filter
+        const array4 = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        const array5 = array4.filter((curele) => {
+            return curele % 2 == 0;
+        })
+        console.log("array5: ", array5);
+
+        //4. reduce
+        const array6 = [1, 2, 3, 4, 5];
+        const res = array6.reduce((previous, current) => {
+            return previous + current;
+        },10)
+        console.log("The result is : ", res);
+    </script>
+</body>
+
+</html>
