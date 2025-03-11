@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events</title>
+</head>
+
+<body>
+    <h1>Events in JS</h1>
+    <p>1. Mouse Events</p>
+    <p>2. Keyboard Events</p>
+    <p>3. Form Events</p>
+    <p>4. Window Events</p>
+    <p>5. Document Events</p>
+    <p>6. Clipboard Events</p>
+    <p>7. Media Events</p>
+
+    <h1>Mouse Events</h1>
+    <h3 id="htag">Hello HTML</h3>
+    <button id="btn">Change the text</button>
+
+
+    <h1>Keyboard Events</h1>
+
+
+    <h1>Form Events</h1>
+    <p>1. input</p>
+    <input type="text" name="username" id="username" placeholder="Enetr userName">
+    <select name="" id="number">
+        <option value="1">1</option>
+        <option value="2">2</option>
+    </select>
+    <p id="result"></p>
+    <h2>Contect Form</h2>
+    <form id="contactForm">
+        <input type="text" name="name" id="name" placeholder="Name" />
+        <input type="email" name="email" id="email" placeholder="Email" />
+        <textarea name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea>
+        <input type="submit" value="Submit">
+    </form>
+
+    <script>
+        //1. Mouse Events
+        //const handleClick = () => {
+        //    const htag = document.querySelector("#htag");
+        //    htag.textContent = "Hello JS";
+        //}
+
+        //addEventListner
+        const btn = document.querySelector("#btn");
+        const htag = document.querySelector("#htag");
+        btn.addEventListener("mouseout", () => {
+            htag.textContent = "Hello JS";
+        });
+
+        //3. Form events
+        const username = document.querySelector("#username");
+        const result = document.querySelector("#result");
+        username.addEventListener("blur", () => {
+            result.innerText = username.value;
+        })
+        username.addEventListener("focus", () => {
+            console.log("Hello world");
+        })
+        document.querySelector("#number").addEventListener("change", () => {
+            console.log("Select input field is changed");
+        })
+
+        const contactForm = document.querySelector("#contactForm");
+        contactForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            console.log("hello");
+        })
+    </script>
+</body>
+
+</html>

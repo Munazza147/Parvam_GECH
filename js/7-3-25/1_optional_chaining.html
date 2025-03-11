@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Optional Chaining</title>
+</head>
+
+<body>
+    <h1>Optional Chaining</h1>
+    <p>syntax : ?.</p>
+
+    <script>
+        const obj1 = {
+            firstName: "pavan",
+            age: 21,
+            address: {
+                country: "India",
+                state: "karnataka",
+                city: "hassan"
+            }
+        }
+        console.log(obj1);
+        console.log(obj1?.address1?.country);
+        //console.log(obj1?.address1?.country);
+
+
+        const adventurer = {
+            name: "Alice",
+            cat: {
+                name: "Dinah",
+            },
+        };
+
+        //const dogName = adventurer.dog?.name;
+        //console.log("Dog name: ", dogName);
+        // Expected output: undefined
+
+    </script>
+</body>
+
+</html>
