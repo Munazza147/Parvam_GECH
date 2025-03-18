@@ -34,6 +34,25 @@ public class StudentService {
 		studentRepository.save(student);
 	}
 
+	public Student getStudent(Long id) {
+		Student student = studentRepository.findById(id).get();
+		return student;
+	}
+
+	public void updateStudent(StudentDTO studentDTO, Long id) {
+		Student student =studentRepository.findById(id).get();
+		student.setfName(studentDTO.getFName());
+		student.setlName(studentDTO.getLName());
+		student.setEmail(studentDTO.getEmail());
+		student.setPhone(studentDTO.getPhone());
+		student.setAddress(studentDTO.getAddress());
+		studentRepository.save(student);
+	}
+
+	public void deleteStudent(Long id) {
+		studentRepository.deleteById(id);
+	}
+
 	
 	
 }
