@@ -44,4 +44,28 @@ public class HomeController {
 		return "redirect:/";
 	}
 	
+	@GetMapping("/edit-student")
+	public String getStudent(@RequestParam Long id, Model model) {
+		Student student = studentService.getStudent(id);
+		StudentDTO studentDTO = new StudentDTO();
+		studentDTO.setFName(student.getfName());
+		studentDTO.setLName(student.getlName());
+		studentDTO.setEmail(student.getEmail());
+		studentDTO.setPhone(student.getPhone());
+		studentDTO.setAddress(student.getAddress());
+		model.addAttribute("studentDTO", studentDTO);//form fields
+		model.addAttribute("student", student);//for id
+		return "edit-student";
+	}
+	@PostMapping("/edit-student")
+	public String updateStudent(@ModelAttribute StudentDTO studentDTO,@RequestParam Long id) {
+		studentService.updateStudent(studentDTO,id);
+		return "redirect:/";
+	}
+	
+	@GetMapping("/delete-student")
+	public String getMethodName(@RequestParam Long id) {
+		studentService.deleteStudent(id);
+		return "redirect:/";
+	}
 }

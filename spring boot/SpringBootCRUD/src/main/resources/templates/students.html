@@ -17,6 +17,7 @@
             <th>Email</th>
             <th>Phone</th>
             <th>Address</th>
+			<th>Actions</th>
         </tr>
         <tbody>
             <tr th:each="student:${students}">
@@ -26,6 +27,10 @@
                 <td th:text="${student.email}"></td>
                 <td th:text="${student.phone}"></td>
                 <td th:text="${student.address}"></td>
+				<td>
+					<a th:href="@{/edit-student(id=${student.id})}">Edit</a>
+					<a th:href="@{/delete-student(id=${student.id})}">Delete</a>
+				</td>	
             </tr>
         </tbody>
     </table>

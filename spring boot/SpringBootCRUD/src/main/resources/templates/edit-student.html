@@ -16,8 +16,8 @@
 </head>
 
 <body>
-	<h1>Welcome to Student Page</h1>
-	<form th:action="@{/add-student}" method="post" th:object ="${studentDTO}">
+	<h1>Edit Student</h1>
+	<form th:action="@{/edit-student(id=${student.id})}" method="post" th:object ="${studentDTO}">
 		<label for="">First Name</label>
 		<input type="text"  placeholder="Enter you first name" th:field ="*{fName}"><br><br>
 		<label for="">Last Name</label>
@@ -28,7 +28,7 @@
 		<input type="number" placeholder="Enter you phone Number" th:field ="*{phone}"><br><br>
 		<label for=""> Address</label>
 		<input type="text"  placeholder="Enter you  address" th:field ="*{address}"><br><br>
-		<input type="submit" value="Add Students">
+		<input type="submit" value="Edit Student">
 	</form>
 
 </body>
