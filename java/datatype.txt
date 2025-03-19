@@ -1,0 +1,42 @@
+Java has two main categories of data types:
+===========================================
+1. Primitive data types(built-in)
+2. Non Primitive Data types(References types like array,string,class)
+
+1. Primitive Datatypes:
+========================
+byte,short,int,long,float,double,char,boolean.
+default values:
+byte - 0
+short - 0
+int - 0
+long - 0L
+float - 0.0f
+double - 0.0
+char - ''
+boolean - false
+
+* show the range values.
+
+2. Non Primitive Datatypes:
+===========================
+1. array:
+=========
+int [] numbers = {10,20,30,40,50};
+sysout(numbers[1]);
+
+2. String:
+==========
+String name = "Java Programming";
+sysout(name);
+
+3. class:
+=========
+class Car{
+    String brand = "Toyota";
+}
+
+psvm(){
+    Car car = new Car;
+    sysout(car.brand);
+}

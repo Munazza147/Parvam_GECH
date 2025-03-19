@@ -1,0 +1,31 @@
+1. unary operator:
+==================
+a++,++a,a--,--a
+
+2. ternary operator:
+====================
+?:
+
+3. arthametic operator:
+=======================
++,-,*,/,%
+
+4. shift operator:
+==================
+>>,<<
+
+5. relational operator:
+=======================
+<,><=,>=,!=,==
+
+7. bitwise operator:
+====================
+&,|,~
+
+8. logical Operator:
+====================
+&&,||,!
+
+9. arthametic assignment operator:
+==================================
++=,-=,*=,/=,%=

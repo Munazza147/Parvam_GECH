@@ -1,0 +1,39 @@
+1. Core java(Must learn Before Spring Boot):
+============================================
+    a. Java Syntax, Variables, Data Types.
+    b. Control Statements(if-else, switch, loops).
+    c. Methods and Functions.
+
+2. Object-Oriented Programming(OOP):
+====================================
+    a. Classes & Objects.
+    b. Encapsulation, Inheritance, Ploymorphism, Abstraction.
+    c. Interfaces and Abstract Classes.
+    b. this and super keywords.
+
+3. Exception Handling(Important):
+=================================
+    a. try-catch, finally, throw, throws.
+
+4. Collections Framework(Important for Spring Boot):
+====================================================
+* List, Set, Map.
+* HashMap,ArrayList,LinkedList etc..
+* Iterators(forEach, Iterator)
+
+5. Java 8 Features (Highly Used in Spring Boot):
+================================================
+* Lambda Expressions
+* Functional Interfaces(Predicate,Consumer,Supplier,Function)
+* Stream API(map(),filert(),collect())
+* Optional API(Avoid NullPointerException).
+
+6. Java I/O & Serialization:
+============================
+* File Handling
+* Serialization
+
+7. JDBC(Database Connectivity):
+===============================
+* Connection with Mysql.
+* CRUD opeartion.
