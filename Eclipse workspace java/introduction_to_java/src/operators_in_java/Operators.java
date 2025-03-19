@@ -15,7 +15,7 @@ public class Operators {
 		Unary Operators - ++,--
 		Assignment Operator - = ,+=,-=,*=,/=,%=
 		Relational Operators - <,>,<=,>=,!=,== - true or false
-		Logical Operators - && , ||, ! - true or flase
+		Logical Operators - && , ||, ! - true or false
 		Ternary Operator - ?:
 		Bitwise Operators - &, |, ~
 		Shift Operators -  >>,<<
