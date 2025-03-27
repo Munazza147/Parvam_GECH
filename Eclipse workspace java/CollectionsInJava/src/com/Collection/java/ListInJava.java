@@ -1,5 +1,8 @@
 package com.Collection.java;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ListInJava {
 	public static void main(String[] args) {
 		/*
@@ -10,22 +13,16 @@ public class ListInJava {
 		 * 	 list implemented classes only
 		 * * When you represent a group of individual object as a single entity 
 		 * 	  where order is preserved and index based access and duplicate is allowed.
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
-		 * 
 		 * */
+		List list = new ArrayList();
+		list.add(2); //0
+		list.add("Hello");//1
+		list.add(10.67);//2
+		System.out.println(list);
+		String str = (String) list.get(1);
+		System.out.println(str);
+		double value = (double) list.get(2);
+		System.out.println(value);
+
 	}
 }
