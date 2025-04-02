@@ -4,17 +4,46 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Event Listeners Example</title>
+    <style>
+        .box {
+            width: 200px;
+            height: 200px;
+            background-color: lightgray;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s ease;
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
     <div>
-        Explain event listeners (click, mouseover) .
-        Task: Create a simple webpage with a div box. When the user hovers over it, change the background color randomly
+        <p><strong>Event Listeners:</strong></p>
+        <p><strong>Click Event:</strong> Triggers when an element is clicked.</p>
+        <p><strong>Mouseover Event:</strong> Triggers when the mouse hovers over an element.</p>
+        <p><strong>Task:</strong> When the user hovers over the box, it changes to a random background color.</p>
     </div>
 
-    <!-- code here -->
+    <div class="box" id="hoverBox">Hover over me</div>
 
+    <script>
+        function getRandomColor() {
+            const letters = "0123456789ABCDEF";
+            let color = "#";
+            for (let i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 16)];
+            }
+            return color;
+        }
+
+        document.getElementById("hoverBox").addEventListener("mouseover", function () {
+            this.style.backgroundColor = getRandomColor();
+        });
+    </script>
 </body>
-
 </html>
