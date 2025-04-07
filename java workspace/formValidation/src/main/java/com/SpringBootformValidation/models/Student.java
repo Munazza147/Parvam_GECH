@@ -7,7 +7,9 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+
 @Entity
+
 @Table(name= "students")
 
 public class Student {
@@ -29,7 +31,30 @@ public class Student {
 	@Column(name="std_password")
 	private String password;
 	
+	@Column(name="imagepath")
+	private String imagepath;
 	
+	public Student(long id, String name, int age, String email, String password, String imagepath) {
+		super();
+		this.id = id;
+		this.name = name;
+		this.age = age;
+		this.email = email;
+		this.password = password;
+		this.imagepath = imagepath;
+	}
+
+	public String getImagepath() {
+		return imagepath;
+	}
+
+	public void setImagepath(String imagepath) {
+		this.imagepath = imagepath;
+	}
+
+	public Student() {
+		super();
+	}
 
 	public long getId() {
 		return id;
@@ -70,6 +95,8 @@ public class Student {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	
 
 }
 

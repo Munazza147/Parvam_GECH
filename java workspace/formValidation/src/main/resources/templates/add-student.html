@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+<meta charset="UTF-8">
+<title>Student Crud</title>
+</head>
+
+<body style="margin: 100px">
+	<h1>Add Student</h1>
+	<form th:action="@{/add-student}" enctype="multipart/form-data" method="post"
+		th:object="${StudentDto}">
+
+		<label>Name:</label> <input type="text" id="std_name"
+			th:field="*{name}" placeholder="Enter your name"><br>
+		<br>
+		<p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></p>
+		<label>Age:</label>
+		<p th:if="${#fields.hasErrors('age')}" th:errors="*{age}"></p>
+		<input type="number" id="std_age" th:field="*{age}"
+			placeholder="Enter your age"><br>
+		<br> <label>Email:</label>
+		<p th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></p>
+		<input type="email" id="std_email" th:field="*{email}"
+			placeholder="Enter your Email"><br>
+		<br> <label>Password:</label>
+		<p th:if="${#fields.hasErrors('password')}" th:errors="*{password}">
+		</p>
+		<input type="password" id="std_password" th:field="*{password}"
+			placeholder="Enter your password"><br>
+		<br> <label for="image"> Image</label> <input type="file"
+			id="image" th:field="*{image}"><br>
+		<p th:if="${#fields.hasErrors('image')}" th:errors="*{image}">
+			
+			<p><Button type="submit">Add Student</Button></p>
+	</form>
+
+</body>
+
+</html>
