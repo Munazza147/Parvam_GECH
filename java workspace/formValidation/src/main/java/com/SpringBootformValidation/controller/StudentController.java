@@ -79,6 +79,11 @@ public class StudentController {
 	@PostMapping("/edit-student")
 	public String updateStudent(@Valid @ModelAttribute StudentDto studentDto, BindingResult result, Model model,
 			@RequestParam(name = "id") Long id) {
+		Student student1=studentRepository.findByEmail(studentDto.getEmail());
+		if(student1!= null && student1.getId()!=id) {
+			result.addError(new FieldError("studentDto","email","email is already exists"));
+		}
+		
 		if (result.hasErrors()) {
 			Student student = studentRepository.findById(id).get();
 			model.addAttribute("student", student);

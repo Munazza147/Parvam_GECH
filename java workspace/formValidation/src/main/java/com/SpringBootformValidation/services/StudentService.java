@@ -1,6 +1,6 @@
 package com.SpringBootformValidation.services;
 
-import java.awt.im.InputContext;
+import java.io.IOException;
 import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -19,104 +19,122 @@ import com.SpringBootformValidation.repository.StudentRepository;
 @Service
 public class StudentService {
 
-	private StudentRepository studentRepository;
+    private final StudentRepository studentRepository;
 
-	private StudentService(StudentRepository studentRepository) {
-		super();
-		this.studentRepository = studentRepository;
-	}
+    // Constructor injection for StudentRepository
+    public StudentService(StudentRepository studentRepository) {
+        this.studentRepository = studentRepository;
+    }
 
-	public List<Student> getAllStudents() {
-		List<Student> students = studentRepository.findAll();
-		return students;
-	}
+    // Get all students
+    public List<Student> getAllStudents() {
+        return studentRepository.findAll();
+    }
 
-	public void saveStudent(StudentDto studentDto) {
-		MultipartFile image = studentDto.getImage();
-		Date createdAt = new Date();
-		String storeImageName = createdAt.getTime() + "_" + image.getOriginalFilename();
-		System.out.println(storeImageName);
+    // Save student along with image
+    public void saveStudent(StudentDto studentDto) {
+        MultipartFile image = studentDto.getImage();
+        Date createdAt = new Date();
+        String storeImageName = createdAt.getTime() + "_" + image.getOriginalFilename();
+        System.out.println("Saving image with name: " + storeImageName);
 
-		try {
-			String uploadDir = "public/images";
-			Path uploadPath = Paths.get(uploadDir);
-			if (!Files.exists(uploadPath)) {
-				Files.createDirectories(uploadPath);
-			}
-			try {
-				InputStream inputStream = image.getInputStream();
-				Files.copy(inputStream, Paths.get(uploadDir + storeImageName), StandardCopyOption.REPLACE_EXISTING);
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-			}
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
+        try {
+            // Define image upload directory
+            String uploadDir = "public/images/";
+            Path uploadPath = Paths.get(uploadDir);
 
-		Student student = new Student();
-		student.setName(studentDto.getName());
-		student.setAge(studentDto.getAge());
-		student.setEmail(studentDto.getEmail());
-		student.setPassword(studentDto.getPassword());
-		student.setImagepath(storeImageName);
-		studentRepository.save(student);
+            // Create directory if it doesn't exist
+            if (!Files.exists(uploadPath)) {
+                Files.createDirectories(uploadPath);
+            }
 
-	}
+            // Save the image file
+            try (InputStream inputStream = image.getInputStream()) {
+                Files.copy(inputStream, uploadPath.resolve(storeImageName), StandardCopyOption.REPLACE_EXISTING);
+            } catch (IOException e) {
+                throw new RuntimeException("Failed to upload the image: " + e.getMessage());
+            }
 
-	public void deleteStudent(Long id) {
-		Student student = studentRepository.findById(id).get();
-		//what is the image path of the student
-		String uploadDir="public/image";
-		Path imagePath = Paths.get(uploadDir+student.getImagepath());
-		try {
-			Files.delete(imagePath);
-		}catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-			
-		
-		studentRepository.delete(student);
+        } catch (IOException e) {
+            System.out.println("Error while creating directory or saving file: " + e.getMessage());
+        }
 
-	}
+        // Create and save student
+        Student student = new Student();
+        student.setName(studentDto.getName());
+        student.setAge(studentDto.getAge());
+        student.setEmail(studentDto.getEmail());
+        student.setPassword(studentDto.getPassword());
+        student.setImagepath(storeImageName); // Set image path for the student
+        studentRepository.save(student);
+    }
 
-	public StudentDto editStudent(Long id) {
-		Student student = studentRepository.findById(id).get();
-		StudentDto studentDto = new StudentDto();
-		studentDto.setName(student.getName());
-		studentDto.setAge(student.getAge());
-		studentDto.setEmail(student.getEmail());
-		studentDto.setPassword(student.getPassword());
-		return studentDto;
+    // Delete student along with image
+    public void deleteStudent(Long id) {
+        Student student = studentRepository.findById(id).orElseThrow(() -> new RuntimeException("Student not found"));
+        
+        // Correcting image path directory
+        String uploadDir = "public/images";  // Ensure this matches the directory in save and update methods
+        Path imagePath = Paths.get(uploadDir, student.getImagepath());
+        
+        try {
+            // Delete the image file
+            Files.delete(imagePath);
+        } catch (IOException e) {
+            System.out.println("Error while deleting the image: " + e.getMessage());
+        }
 
-	}
+        // Delete the student from the database
+        studentRepository.delete(student);
+    }
 
-	public void updateStudent(StudentDto studentDto, Long id) {
-		Student student = studentRepository.findById(id).get();
-		if(!studentDto.getImage().isEmpty()) {
-			Path oldImagePath= Paths.get("public/image/"+student.getImagepath());
-			try {
-				Files.delete(oldImagePath);
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-			}
-			MultipartFile image = studentDto.getImage();
-			Date createdAt = new Date();
-			String storeImageName = createdAt.getTime() + "_" + image.getOriginalFilename();
-			String uploadDir = "public/images";
-			try {
-				InputStream inputStream = image.getInputStream();
-				Files.copy(inputStream, Paths.get(uploadDir + storeImageName), StandardCopyOption.REPLACE_EXISTING);
-			} catch (Exception e) {
-				System.out.println(e.getMessage());
-			}
-			student.setImagepath(storeImageName);
-		}
-		student.setName(studentDto.getName());
-		student.setAge(studentDto.getAge());
-		student.setEmail(studentDto.getEmail());
-		student.setPassword(studentDto.getPassword());
-		studentRepository.save(student);
+    // Edit student details (retrieve current data to pre-populate the form)
+    public StudentDto editStudent(Long id) {
+        Student student = studentRepository.findById(id).orElseThrow(() -> new RuntimeException("Student not found"));
+        StudentDto studentDto = new StudentDto();
+        studentDto.setName(student.getName());
+        studentDto.setAge(student.getAge());
+        studentDto.setEmail(student.getEmail());
+        studentDto.setPassword(student.getPassword());
+        return studentDto;
+    }
 
-	}
+    // Update student and their image
+    public void updateStudent(StudentDto studentDto, Long id) {
+        Student student = studentRepository.findById(id).orElseThrow(() -> new RuntimeException("Student not found"));
 
+        // If a new image is provided, delete the old one
+        if (!studentDto.getImage().isEmpty()) {
+            Path oldImagePath = Paths.get("public/images", student.getImagepath());
+            try {
+                Files.delete(oldImagePath); // Delete old image
+            } catch (IOException e) {
+                System.out.println("Error while deleting the old image: " + e.getMessage());
+            }
+
+            // Handle the new image file
+            MultipartFile image = studentDto.getImage();
+            Date createdAt = new Date();
+            String storeImageName = createdAt.getTime() + "_" + image.getOriginalFilename();
+            String uploadDir = "public/images/";
+
+            try (InputStream inputStream = image.getInputStream()) {
+                Files.copy(inputStream, Paths.get(uploadDir).resolve(storeImageName), StandardCopyOption.REPLACE_EXISTING);
+            } catch (IOException e) {
+                throw new RuntimeException("Failed to upload the new image: " + e.getMessage());
+            }
+
+            // Update the student's image path in the database
+            student.setImagepath(storeImageName);
+        }
+
+        // Update the remaining student details
+        student.setName(studentDto.getName());
+        student.setAge(studentDto.getAge());
+        student.setEmail(studentDto.getEmail());
+        student.setPassword(studentDto.getPassword());
+        
+        // Save the updated student data
+        studentRepository.save(student);
+    }
 }

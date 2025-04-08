@@ -27,7 +27,7 @@
         <input type="password" name="std_password" th:field="*{password}" placeholder="Enter your password"><br><br>
         
         <label for="image"> Image</label>
-        <img alt="image" height="100px" width="100px" th:src="@{'image/'+${student.imagepath}}"> <br>
+        <img alt="image" height="100px" width="100px" th:src="@{'/images/'+${student.imagepath}}"> <br>
          <input type="file" id="image" th:field="*{image}"><br>
 		<p th:if="${#fields.hasErrors('image')}" th:errors="*{image}">
 		
