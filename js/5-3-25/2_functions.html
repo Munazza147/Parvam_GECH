@@ -103,6 +103,24 @@
             console.log("This is display function expression");
         }
         display1();
+        const para_not_return=function(a,b){
+            console.log(a+b);
+        }
+        para_not_return(2,4)
+        const para_return=function(a,m){
+            return c=a+m;
+        }
+        const re=para_return(4,7)
+        console.log(re);
+        const not_para_not_return=function(){
+            console.log("get losy");
+        }
+        not_para_not_return();
+        const not_para_return=function(){
+            return 5678;
+        }
+        not_para_return();
+       
     </script>
     <script>
         //Arrow function
@@ -110,6 +128,12 @@
             console.log("This is display arrow function");
         }
         display2();
+        const para_return1=(m,n)=>{
+        return c=m*n;
+
+       }
+       const lu=para_return1(2,3);
+       console.log(lu);
     </script>
 </body>
 

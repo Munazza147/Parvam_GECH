@@ -1,11 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+
+
+        }
+
+        .child1 {
+
+            height: 400px;
+            width: 100px;
+            border: 2px solid rgb(134, 29, 29);
+            margin: 10px;
+           
+        }
+        .child2{
+            height: 400px;
+            width: 100px;
+            border: 2px solid rgb(134, 29, 29);
+            margin: 10px; 
+        }
+        .child3{
+            height: 400px;
+            width: 100px;
+            border: 2px solid rgb(134, 29, 29);
+            margin: 10px;
+            flex-direction: column-reverse ;
+        }
+        .child4{
+            height: 400px;
+            width: 100px;
+            border: 2px solid rgb(134, 29, 29);
+          
+        }
+    </style>
 </head>
+
 <body>
-    
+    <div class="container">
+        <div class="child1">1</div>
+        <div class="child2">2</div>
+        <div class="child3">3</div>
+        <div class="child4">4</div>
+
+    </div>
 </body>
+
 </html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./jaan.js" defer></script>
+</head>
+<body>
+    <h1>html js</h1>
+    <p id="demo">html content</p>
+    <button type="button" onclick="document.getElementById('demo').innerText='hello munazza'">button of html</button>
+    <p id="demo1">internal js</p>
+    <button type="button" onclick="handelclick()">internal js</button>
+    <script>
+        function handelclick(){
+            document.getElementById('demo1').innerText='kahi mar ja kamini'
+        }
+    </script>
+    <p id="demo2">external js</p>
+    <button type="button" onclick="handelclick1()">external js</button>
+</body>
+</html>
