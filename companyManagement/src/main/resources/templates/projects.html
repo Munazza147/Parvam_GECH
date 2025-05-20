@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{layout :: layout('Projects | Bricks Byte', ~{::content})}">
+<head>
+  <meta charset="UTF-8">
+  <title>Projects | Bricks Byte</title>
+</head>
+<body>
+<div th:fragment="content">
+  <section class="section-hero-dark text-white py-5 text-center">
+    <div class="container">
+      <h1 class="display-4 fw-bold mb-3">Our Projects</h1>
+      <p class="lead mb-0">Discover some of our latest and most impactful work.</p>
+    </div>
+  </section>
+  <section class="py-5 bg-light">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="project-card bg-white rounded shadow-sm h-100">
+            <img src="/images/project1.jpg" class="img-fluid rounded-top" alt="Science Lab Building">
+            <div class="p-3">
+              <h5 class="fw-bold mb-2">Science Lab Building</h5>
+              <div class="project-tags mb-2">
+                <span class="badge bg-dark">Commercial</span>
+                <span class="badge bg-orange">New Build</span>
+              </div>
+              <p class="mb-3">A state-of-the-art science facility, completed ahead of schedule with advanced sustainability features.</p>
+              <a href="#" class="text-orange fw-bold">Project Details &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="project-card bg-white rounded shadow-sm h-100">
+            <img src="/images/project2.jpg" class="img-fluid rounded-top" alt="Family House">
+            <div class="p-3">
+              <h5 class="fw-bold mb-2">Family House</h5>
+              <div class="project-tags mb-2">
+                <span class="badge bg-orange">Renovation</span>
+              </div>
+              <p class="mb-3">A complete transformation of a single-family home into a modern, energy-efficient haven.</p>
+              <a href="#" class="text-orange fw-bold">Project Details &rarr;</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="project-card bg-white rounded shadow-sm h-100">
+            <img src="/images/project3.jpg" class="img-fluid rounded-top" alt="Green House Neighbourhood">
+            <div class="p-3">
+              <h5 class="fw-bold mb-2">Green House Neighbourhood</h5>
+              <div class="project-tags mb-2">
+                <span class="badge bg-dark">Commercial</span>
+              </div>
+              <p class="mb-3">A sustainable neighborhood project featuring innovative green building technologies and community spaces.</p>
+              <a href="#" class="text-orange fw-bold">Project Details &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+</body>
+</html>
